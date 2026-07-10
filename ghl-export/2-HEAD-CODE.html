@@ -3,7 +3,16 @@
      Paste into: Site/Funnel Settings > Custom Code > Header Code
      (or the page-level Tracking Code > Header box)
      ============================================================ -->
+
+<!-- Mobile rendering: without this tag phones render the page
+     desktop-sized and zoomed out. GHL usually injects its own
+     viewport meta; keeping this here is a safe no-op in that case
+     and a critical fix when the template doesn't. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="theme-color" content="#0B2D5C">
+
+<!-- Brand fonts (Poppins headings / Inter body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">

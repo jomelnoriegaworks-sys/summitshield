@@ -3,8 +3,12 @@
    Where to paste (either works):
    a) Funnel/Website > your page > Settings gear > Custom CSS, or
    b) Site Settings > Custom CSS (applies to every page)
-   Fonts are loaded by 2-HEAD-CODE.html, so the @import at the top
-   of this file is a harmless backup if GHL keeps it.
+
+   GHL-hardened: base element styles are scoped to the .ss-root
+   wrapper that 3-PAGE-BLOCK.html provides, so this stylesheet
+   cannot fight GHL's own builder styles (and vice versa).
+   Fonts are loaded by 2-HEAD-CODE.html; the @import at the top of
+   this file is a harmless backup if GHL keeps it.
    ============================================================ */
 
 /* ==========================================================================
@@ -87,7 +91,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+.ss-root {
   margin: 0;
   font-family: var(--font-body);
   font-size: 16px;
@@ -101,15 +105,15 @@ body {
   display: flex;
   flex-direction: column;
 }
-main { flex: 1; }
+.ss-root main { flex: 1; }
 
-img { max-width: 100%; height: auto; display: block; }
-a { color: var(--ss-secondary); text-decoration: none; }
-ul, ol { padding: 0; margin: 0; list-style: none; }
-button { font-family: inherit; cursor: pointer; }
-svg { display: block; }
+.ss-root img { max-width: 100%; height: auto; display: block; }
+.ss-root a { color: var(--ss-secondary); text-decoration: none; }
+.ss-root ul, .ss-root ol { padding: 0; margin: 0; list-style: none; }
+.ss-root button { font-family: inherit; cursor: pointer; }
+.ss-root svg { display: block; }
 
-h1, h2, h3, h4, h5, h6 {
+.ss-root h1, .ss-root h2, .ss-root h3, .ss-root h4, .ss-root h5, .ss-root h6 {
   font-family: var(--font-heading);
   color: var(--ss-primary);
   font-weight: 600;
@@ -118,12 +122,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.015em; }
-h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
-h4 { font-size: 1.125rem; }
+.ss-root h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; }
+.ss-root h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.015em; }
+.ss-root h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
+.ss-root h4 { font-size: 1.125rem; }
 
-h1, h2, h3 { text-wrap: balance; }
+.ss-root h1, .ss-root h2, .ss-root h3 { text-wrap: balance; }
 
 /* Keep anchor targets clear of the sticky header */
 [id] { scroll-margin-top: 96px; }
@@ -137,8 +141,8 @@ h1, h2, h3 { text-wrap: balance; }
   }
 }
 
-p { margin: 0 0 var(--space-sm); color: var(--ss-ink-muted); }
-p:last-child { margin-bottom: 0; }
+.ss-root p { margin: 0 0 var(--space-sm); color: var(--ss-ink-muted); }
+.ss-root p:last-child { margin-bottom: 0; }
 
 /* Focus visibility for accessibility */
 a:focus-visible,
@@ -1561,4 +1565,39 @@ select:focus-visible,
 /* Print */
 @media print {
   .site-header, .cta-band, .site-footer, .nav-toggle { display: none; }
+}
+
+
+/* ============================================================
+   GHL DEFENSES (export-only)
+   ============================================================ */
+.ss-root {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ss-ink);
+  background: var(--ss-bg);
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+.ss-root * , .ss-root *::before, .ss-root *::after { box-sizing: border-box; }
+
+/* Mobile sticky CTA bar (rendered by the page block, phones/tablets only) */
+.ss-root .m-cta-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 600;
+  display: none;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid var(--ss-border);
+  box-shadow: 0 -4px 16px rgba(11, 45, 92, 0.1);
+}
+.ss-root .m-cta-bar .btn { flex: 1; padding: 13px 10px; font-size: 0.9375rem; white-space: normal; text-align: center; }
+@media (max-width: 768px) {
+  .ss-root .m-cta-bar { display: flex; }
+  /* keep the fixed bar from covering the footer's last lines */
+  .ss-root .site-footer { padding-bottom: 110px; }
 }

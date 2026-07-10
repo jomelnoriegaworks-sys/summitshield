@@ -955,13 +955,6 @@
   </div>
 </footer>
 
-
-<!-- Sticky mobile conversion bar (visible on phones/tablets only;
-     styled by the GHL DEFENSES section of 1-CUSTOM-CSS.css) -->
-<div class="m-cta-bar" aria-label="Quick actions">
-  <a href="#consultation" class="btn btn--primary">Book Free Consultation</a>
-  <a href="#quote" class="btn btn--secondary">Get a Quote</a>
-</div>
 <script>
 /* Summit Shield — page block script (scoped to #ss-page) */
 (function () {
@@ -1071,3 +1064,11 @@
 </script>
 
 </div><!-- /.ss-root -->
+
+<!-- Sticky mobile conversion bar (phones/tablets only; styled by the
+     GHL DEFENSES section of 1-CUSTOM-CSS.css). Deliberately outside
+     the .ss-root wrapper so position:fixed pins to the screen. -->
+<div class="m-cta-bar" aria-label="Quick actions">
+  <a href="#consultation" class="btn btn--primary">Book Free Consultation</a>
+  <a href="#quote" class="btn btn--secondary">Get a Quote</a>
+</div>

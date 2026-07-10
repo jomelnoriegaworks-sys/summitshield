@@ -27,11 +27,22 @@ Rebuild the entire one-page site inside GHL in about 5 minutes.
 
 1. Confirm `2-HEAD-CODE.html` is in the **Header Code** — the viewport tag is what makes phones render at the right scale.
 2. Confirm the section/row/column holding the block have **0 padding** and **full width** — GHL's default padding boxes the design in.
-3. Preview on a real device or with browser dev tools, not only GHL's editor preview — the editor sometimes renders custom HTML at desktop width regardless.
+3. Re-paste the latest `1-CUSTOM-CSS.css`. The layout breakpoints are written as **container queries**, so the block adapts to the width of the box GHL puts it in — including GHL's editor mobile preview, which narrows the container without narrowing the browser viewport (the situation that makes viewport-only CSS collapse into one-letter-wide nav links).
+4. The sticky bottom CTA bar only appears on true mobile viewports (real phones / dev-tools device mode), not in GHL's editor preview — that's expected, it's pinned to the device screen.
 
-## When would I use `4-PAGE-BLOCK-MOBILE.html`?
+## `4-PAGE-BLOCK-MOBILE.html` — where it goes (optional file)
 
-Only if you want **different content or layout per device** using GHL's show/hide device visibility: put `3-PAGE-BLOCK.html` in a "desktop only" section and the mobile file in a "mobile only" section. Its element ids are prefixed `m-` so the two blocks can share a page without colliding. For a normal build you don't need it — block 3 is fully responsive by itself.
+**You probably don't need it.** `3-PAGE-BLOCK.html` is fully responsive on its own — one paste covers desktop, tablet, and mobile. Ignore block 4 unless you specifically want different content per device.
+
+If you do want a device split, here is exactly where each file goes:
+
+1. In the GHL page builder, create **two sections**, one below the other.
+2. **Section 1** → add a Custom JS/HTML element → paste **`3-PAGE-BLOCK.html`** → select the *section* → open its settings → **Visibility: hide on mobile** (so it shows on desktop only).
+3. **Section 2** → add a Custom JS/HTML element → paste **`4-PAGE-BLOCK-MOBILE.html`** → select the *section* → **Visibility: hide on desktop** (so it shows on mobile only).
+4. Both sections: width full, padding 0. Replace the `GHL_FORM_EMBED` placeholder **in both blocks** (they hold separate copies of the form area).
+5. Block 4's element ids are prefixed `m-` so the two blocks never collide on the same page, and it also self-hides above 768px as a backup even if the visibility setting is forgotten.
+
+Never paste block 4 as your only block on a normal page — it hides itself on desktop screens by design (that guard is removable; see the comment at the top of the file).
 
 ## Notes
 

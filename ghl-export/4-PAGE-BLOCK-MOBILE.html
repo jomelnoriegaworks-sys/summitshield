@@ -967,13 +967,6 @@
 </footer>
 
 
-
-<!-- Sticky mobile conversion bar -->
-<div class="m-cta-bar" aria-label="Quick actions">
-  <a href="#m-consultation" class="btn btn--primary">Book Free Consultation</a>
-  <a href="#m-quote" class="btn btn--secondary">Get a Quote</a>
-</div>
-
 <script>
 /* Summit Shield — mobile block script (scoped to #ss-mobile) */
 (function () {
@@ -1048,4 +1041,11 @@
   else init();
 })();
 </script>
+</div>
+
+<!-- Sticky mobile conversion bar (outside the wrapper so
+     position:fixed pins to the screen, not the page) -->
+<div class="m-cta-bar" aria-label="Quick actions">
+  <a href="#m-consultation" class="btn btn--primary">Book Free Consultation</a>
+  <a href="#m-quote" class="btn btn--secondary">Get a Quote</a>
 </div>

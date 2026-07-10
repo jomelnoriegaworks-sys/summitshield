@@ -8,11 +8,17 @@ A premium, conversion-focused 3-page marketing website for **Summit Shield Insur
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home — hero, trust indicators, services overview, proof of results, comparison table, process, cost, testimonials, guarantee, FAQ, CTA |
-| `services.html` | Services — Life, Health, Auto, Home, and Business insurance, each with overview, benefits, ideal customer, and CTA |
-| `contact.html` | Contact — contact info, GHL form embed placeholder, GHL calendar embed placeholder |
+| `index.html` | Home — hero (photo + policy card), trust bar, problem/empathy/promise narrative, services overview, proof of results, comparison table, process, cost, testimonials, guarantee, urgency ("why now") with rate chart, FAQ, CTA |
+| `services.html` | Services — Life, Health, Auto, Home, and Business insurance, each with photo, overview, benefits, ideal customer, and CTA |
+| `contact.html` | Contact — contact info (email-first), GHL form embed placeholder, GHL calendar embed placeholder |
+| `privacy.html` / `terms.html` | Legal pages, linked from the footer |
+| `404.html` | Branded not-found page (Netlify serves this automatically) |
 
-Plus `styles.css` (single stylesheet, all pages) and `script.js` (vanilla JS: mobile nav, FAQ accordion, contact tabs, anchor nav).
+Plus `styles.css` (single stylesheet, all pages) and `script.js` (vanilla JS: mobile nav, FAQ accordion, contact tabs with arrow-key support, anchor nav).
+
+Live site: https://summitshieldinsurance.netlify.app (auto-deploys from `main`).
+
+Photography: Unsplash/Pexels-licensed stock, self-hosted in `assets/img/` (free for commercial use, no attribution required).
 
 ## Tech Constraints (by design)
 

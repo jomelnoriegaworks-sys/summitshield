@@ -45,22 +45,21 @@
     if (!questions.length) return;
 
     questions.forEach(function (btn) {
-      var answer = document.getElementById(btn.getAttribute('aria-controls'));
-      if (!answer) return;
+      var item = btn.closest('.faq-item');
+      if (!item) return;
 
       btn.addEventListener('click', function () {
         var isOpen = btn.getAttribute('aria-expanded') === 'true';
 
         // Close all others (single-open accordion behavior)
         questions.forEach(function (otherBtn) {
-          if (otherBtn === btn) return;
-          var otherAnswer = document.getElementById(otherBtn.getAttribute('aria-controls'));
+          var otherItem = otherBtn.closest('.faq-item');
           otherBtn.setAttribute('aria-expanded', 'false');
-          if (otherAnswer) otherAnswer.style.maxHeight = null;
+          if (otherItem) otherItem.classList.remove('is-open');
         });
 
         btn.setAttribute('aria-expanded', String(!isOpen));
-        answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+        item.classList.toggle('is-open', !isOpen);
       });
     });
   }
@@ -71,6 +70,25 @@
   function initEmbedTabs() {
     var tabs = document.querySelectorAll('.embed-tab');
     if (!tabs.length) return;
+
+    // Arrow-key navigation per the ARIA tabs pattern
+    var tablist = document.querySelector('.embed-tabs');
+    if (tablist) {
+      tablist.addEventListener('keydown', function (e) {
+        var list = Array.prototype.slice.call(tabs);
+        var current = list.indexOf(document.activeElement);
+        if (current === -1) return;
+        var next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (current + 1) % list.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (current - 1 + list.length) % list.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = list.length - 1;
+        if (next === null) return;
+        e.preventDefault();
+        list[next].focus();
+        list[next].click();
+      });
+    }
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {

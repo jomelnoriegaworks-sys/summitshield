@@ -4,21 +4,24 @@ A premium, conversion-focused 3-page marketing website for **Summit Shield Insur
 
 ![Summit Shield Insurance](assets/img/logo.png)
 
-## Pages
+## Structure (single-page site)
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home — hero (photo + policy card), trust bar, problem/empathy/promise narrative, services overview, proof of results, comparison table, process, cost, testimonials, guarantee, urgency ("why now") with rate chart, FAQ, CTA |
-| `services.html` | Services — Life, Health, Auto, Home, and Business insurance, each with photo, overview, benefits, ideal customer, and CTA |
-| `contact.html` | Contact — contact info (email-first), GHL form embed placeholder, GHL calendar embed placeholder |
+| `index.html` | **The entire site in one page**: hero (photo + policy card), trust bar, problem/empathy/promise narrative, 5 full coverage sections (Life/Health/Auto/Home/Business with photos, benefits, ideal customer, CTA), proof of results, comparison table, process, cost, testimonials, guarantee, urgency with rate chart, FAQ, CTA, and the contact section (GHL form embed placeholder + email-only quote form) |
 | `privacy.html` / `terms.html` | Legal pages, linked from the footer |
+| `thanks.html` | Quote form success page |
 | `404.html` | Branded not-found page (Netlify serves this automatically) |
+| `_redirects` | Old `/services` and `/contact` URLs redirect to the page anchors |
+| `ghl-export/` | **GoHighLevel import kit** — paste-ready Custom CSS, header code, and the whole page as one Custom HTML/JS block, with instructions |
 
-Plus `styles.css` (single stylesheet, all pages) and `script.js` (vanilla JS: mobile nav, FAQ accordion, contact tabs with arrow-key support, anchor nav).
+Plus `styles.css` (single stylesheet) and `script.js` (vanilla JS: mobile nav, FAQ accordion, contact tabs with arrow-key support).
 
 Live site: https://summitshieldinsurance.netlify.app (auto-deploys from `main`).
 
-Photography: Unsplash/Pexels-licensed stock, self-hosted in `assets/img/` (free for commercial use, no attribution required).
+**Quote form**: the email-only "Request a Quote" form uses Netlify Forms. One-time setup: Netlify dashboard → Forms → Notifications → add email notification to `summitshieldinsure@gmail.com`.
+
+Photography: Unsplash/Pexels-licensed stock, self-hosted in `assets/img/` with responsive 480/800/full variants (free for commercial use, no attribution required).
 
 ## Tech Constraints (by design)
 

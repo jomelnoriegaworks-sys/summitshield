@@ -108,17 +108,15 @@
       });
     });
 
-    // Deep-link support: #quote or #consultation in the URL opens the right tab
+    // Deep-link support: #quote or #consultation opens the right tab.
+    // Scrolling is left to the browser's native anchor behavior — the
+    // anchor spans sit just above the panel with scroll-margin applied.
     function openTabFromHash() {
       var hash = window.location.hash.replace('#', '');
       var tab = null;
       if (hash === 'quote') tab = document.querySelector('[data-target="panel-quote"]');
       if (hash === 'consultation') tab = document.querySelector('[data-target="panel-consultation"]');
-      if (tab) {
-        tab.click();
-        var panel = document.querySelector('.embed-panel');
-        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (tab) tab.click();
     }
     openTabFromHash();
     window.addEventListener('hashchange', openTabFromHash);

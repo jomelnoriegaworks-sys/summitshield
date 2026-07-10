@@ -111,59 +111,29 @@
 
         <!-- RIGHT: Form / Calendar tabs -->
         <div>
+          <!-- Hash anchors: land visitors at the top of the panel (not inside it)
+               so the tabs stay visible below the sticky header -->
+          <span id="consultation" style="display:block;height:0;" aria-hidden="true"></span>
+          <span id="quote" style="display:block;height:0;" aria-hidden="true"></span>
           <div class="embed-panel">
             <div class="embed-tabs" role="tablist" aria-label="Contact method">
               <button class="embed-tab is-active" role="tab" aria-selected="true" aria-controls="panel-consultation" id="tab-consultation" data-target="panel-consultation">Book a Consultation</button>
               <button class="embed-tab" role="tab" aria-selected="false" aria-controls="panel-quote" id="tab-quote" data-target="panel-quote">Request a Quote</button>
             </div>
 
-            <!-- CONSULTATION / CALENDAR PANEL -->
+            <!-- CONSULTATION / GHL FORM PANEL -->
             <div class="embed-panel-content is-active" id="panel-consultation" role="tabpanel" aria-labelledby="tab-consultation">
-              <h3 id="consultation">Book your free 15-minute call</h3>
-              <p style="margin-bottom:var(--space-md);">Pick a time that works for you. No forms to fill out first, no prep required.</p>
-
-              <!--
-                ============================================================
-                GHL CALENDAR EMBED — INSERT HERE
-                ============================================================
-                Replace this placeholder <div> with your GoHighLevel
-                Calendar embed code. In GHL: Sites > Calendars > select
-                calendar > Embed Code > copy the <iframe> snippet and
-                paste it in place of the placeholder below.
-
-                Example of what GHL typically outputs:
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/booking/YOUR_CALENDAR_ID"
-                  style="width:100%;border:none;overflow:hidden;"
-                  scrolling="no"
-                  id="YOUR_CALENDAR_ID_1">
-                </iframe>
-                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                ============================================================
-              -->
-              <div class="ghl-embed-placeholder">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
-                <strong>GoHighLevel Calendar Embed Goes Here</strong>
-                <p>Paste your GHL Calendar iframe embed code inside this container to replace this placeholder.</p>
-                <code>&lt;!-- GHL_CALENDAR_EMBED --&gt;</code>
-              </div>
-              <!-- END GHL CALENDAR EMBED -->
-
-            </div>
-
-            <!-- QUOTE / FORM PANEL -->
-            <div class="embed-panel-content" id="panel-quote" role="tabpanel" aria-labelledby="tab-quote">
-              <h3 id="quote">Request a free quote</h3>
-              <p style="margin-bottom:var(--space-md);">Tell us a bit about what you're looking to cover, and an advisor will follow up with options.</p>
+              <h3>Book your free consultation</h3>
+              <p style="margin-bottom:var(--space-md);">Fill out the short form below and an advisor will reach out to schedule your free 15-minute call.</p>
 
               <!--
                 ============================================================
                 GHL FORM EMBED — INSERT HERE
                 ============================================================
-                Replace this placeholder <div> with your GoHighLevel Form
-                embed code. In GHL: Sites > Forms > select form >
-                Embed Code > copy the <iframe> or inline embed snippet
-                and paste it in place of the placeholder below.
+                Replace the placeholder <div> below with your GoHighLevel
+                Form embed code. In GHL: Sites > Forms > Builder > select
+                your form > Integrate > copy the iframe embed snippet and
+                paste it in place of the placeholder.
 
                 Example of what GHL typically outputs:
                 <iframe
@@ -172,16 +142,49 @@
                   id="YOUR_FORM_ID">
                 </iframe>
                 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+                (Optional: a GHL Calendar embed works in this same spot if
+                you'd rather clients self-book — Calendars > Embed Code.)
                 ============================================================
               -->
               <div class="ghl-embed-placeholder">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
                 <strong>GoHighLevel Form Embed Goes Here</strong>
-                <p>Paste your GHL Form embed code inside this container to replace this placeholder.</p>
+                <p>Paste your GHL Form iframe embed code inside this container to replace this placeholder.</p>
                 <code>&lt;!-- GHL_FORM_EMBED --&gt;</code>
               </div>
               <!-- END GHL FORM EMBED -->
-              <p style="margin-top:var(--space-sm);font-size:0.8438rem;color:var(--ss-ink-faint);text-align:center;">Your information is never sold or shared. Submitting this form triggers exactly one response — from us.</p>
+
+            </div>
+
+            <!-- QUOTE PANEL — simple email capture -->
+            <div class="embed-panel-content" id="panel-quote" role="tabpanel" aria-labelledby="tab-quote">
+              <h3>Request a free quote</h3>
+              <p style="margin-bottom:var(--space-md);">Enter your email and an advisor will send your quote options to your inbox — usually the same business day.</p>
+
+              <!--
+                ============================================================
+                QUOTE FORM — Netlify Forms
+                Submissions are collected by Netlify and forwarded to
+                summitshieldinsure@gmail.com.
+                One-time setup in Netlify: Site > Forms > Notifications >
+                "Email notification" > summitshieldinsure@gmail.com.
+
+                If this page is ever rebuilt inside GoHighLevel, replace
+                this form with a GHL form embed instead (Netlify Forms
+                only works on Netlify hosting).
+                ============================================================
+              -->
+              <form class="quote-form" name="quote-request" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="quote-request">
+                <p class="visually-hidden" aria-hidden="true">
+                  <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                </p>
+                <label for="quote-email">Your email address</label>
+                <input type="email" id="quote-email" name="email" required autocomplete="email" placeholder="you@example.com">
+                <button type="submit" class="btn btn--primary btn--block">Request My Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+                <p class="quote-form-note">Your reply comes from <strong>summitshieldinsure@gmail.com</strong> — real numbers, no calls, no spam, and your email is never sold or shared.</p>
+              </form>
 
             </div>
           </div>

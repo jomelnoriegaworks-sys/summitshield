@@ -1337,6 +1337,7 @@ select:focus-visible,
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   box-shadow: var(--shadow-card);
+  scroll-margin-top: 96px; /* keep tabs clear of the sticky header after hash scroll */
 }
 .embed-tabs {
   display: flex;
@@ -1360,6 +1361,38 @@ select:focus-visible,
 }
 .embed-panel-content { display: none; }
 .embed-panel-content.is-active { display: block; }
+
+/* Simple quote-request form (email only) */
+.quote-form {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: 460px;
+}
+.quote-form label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ss-primary);
+}
+.quote-form input[type="email"] {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 14px 18px;
+  border: 1.5px solid var(--ss-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ss-white);
+  color: var(--ss-ink);
+  width: 100%;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.quote-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--ss-secondary);
+  box-shadow: 0 0 0 3px rgba(30, 90, 168, 0.15);
+}
+.quote-form-note {
+  font-size: 0.8438rem;
+  color: var(--ss-ink-faint);
+}
 
 /* GHL embed placeholder styling */
 .ghl-embed-placeholder {

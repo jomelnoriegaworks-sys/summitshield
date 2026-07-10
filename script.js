@@ -1,7 +1,7 @@
 /* ==========================================================================
    SUMMIT SHIELD INSURANCE — SITE SCRIPT
    Vanilla JS, no dependencies. Safe to paste into a GHL Custom HTML/JS
-   block (wrap in <script>...</script> if pasting inline).
+   block (wrap in an HTML script tag if pasting inline).
    ========================================================================== */
 (function () {
   'use strict';

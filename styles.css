@@ -1167,9 +1167,9 @@ select:focus-visible,
    ========================================================================== */
 .service-block {
   padding: var(--space-2xl) 0;
-  scroll-margin-top: 130px;
+  scroll-margin-top: 96px;
 }
-.service-block:nth-child(even) { background: var(--ss-white); }
+.service-block--alt { background: var(--ss-white); }
 
 .service-block-inner {
   display: grid;

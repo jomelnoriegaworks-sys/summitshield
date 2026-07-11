@@ -1204,6 +1204,47 @@ select:focus-visible,
   min-height: 1551px;
 }
 
+/* "How it works" sequence above the popup-opening CTA button */
+.embed-panel-steps {
+  counter-reset: ss-step;
+  display: grid;
+  gap: 14px;
+  margin: 0 0 var(--space-md);
+}
+.embed-panel-steps li {
+  counter-increment: ss-step;
+  position: relative;
+  padding-left: 36px;
+  font-size: 0.9375rem;
+  color: var(--ss-ink-muted);
+}
+.embed-panel-steps li::before {
+  content: counter(ss-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(30, 90, 168, 0.1);
+  color: var(--ss-secondary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.embed-panel-steps strong { color: var(--ss-ink); font-weight: 600; }
+
+/* Reassurance line under the popup-opening CTA button */
+.embed-panel .form-cta-note {
+  font-size: 0.875rem;
+  color: var(--ss-ink-faint);
+  margin: 12px 0 0;
+  text-align: center;
+}
+
 .map-wrap {
   border-radius: var(--radius-md);
   overflow: hidden;

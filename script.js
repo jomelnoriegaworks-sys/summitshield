@@ -157,6 +157,25 @@
     onScroll();
   }
 
+  /* Keep same-page CTA anchors reliable when the page is embedded by a
+     builder and offset their targets below the sticky header. */
+  function initCtaAnchors() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var id = link.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+      });
+      history.replaceState(null, '', '#' + id);
+    });
+  }
+
   /* ------------------------------------------------------------
      INIT
      ------------------------------------------------------------ */
@@ -166,5 +185,6 @@
     initEmbedTabs();
     initAnchorNav();
     initHeaderScrollState();
+    initCtaAnchors();
   });
 })();

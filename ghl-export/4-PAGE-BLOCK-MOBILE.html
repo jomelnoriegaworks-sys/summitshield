@@ -1,9 +1,10 @@
 <!-- ============================================================
-     SUMMIT SHIELD INSURANCE — MOBILE PAGE BLOCK (HTML + JS)
-     A self-contained, mobile-only version of the full page.
+     SUMMIT SHIELD INSURANCE — LEGACY MOBILE-ONLY BLOCK
+     Optional fallback for an existing two-section device split.
+     New installs should use 3-PAGE-BLOCK.html alone for all devices.
 
      HOW TO USE IN GHL (two options):
-     A) Device-visibility split (recommended):
+     A) Legacy device-visibility split:
         - Put 3-PAGE-BLOCK.html in one section, set it to
           "Desktop only" in GHL's visibility settings.
         - Put THIS block in a second section, set to "Mobile only".
@@ -14,10 +15,8 @@
           "DESKTOP GUARD" style tag right below, or the page will
           be blank on desktop screens.
 
-     Same before-publishing steps as the desktop block:
-     1. Replace GHL_FORM_EMBED with your real GHL form iframe.
-     2. Replace the Netlify quote form with a GHL form embed
-        (or a mailto: link) — see README-GHL.md.
+     The Summit Shield consultation form is already embedded below;
+     both quote and consultation CTAs lead to it.
      Requires 1-CUSTOM-CSS.css in Custom CSS and 2-HEAD-CODE.html
      in the header, same as the desktop block.
      ============================================================ -->
@@ -133,7 +132,7 @@
       </div>
       <div class="trust-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Same business day response
+        12+ years of independent advice
       </div>
     </div>
   </section>
@@ -155,50 +154,7 @@
   </section>
 
   <!-- ============================================================
-       4. IF THIS SOUNDS FAMILIAR (pain points)
-       ============================================================ -->
-  <section class="section section--white" id="m-sounds-familiar" aria-labelledby="m-familiar-heading">
-    <div class="container">
-      <div class="section-head--left">
-        <span class="eyebrow">If This Sounds Familiar</span>
-        <h2 id="m-familiar-heading">You're not lazy. You're just tired of being sold to.</h2>
-      </div>
-      <div class="grid grid--2">
-        <div class="pain-card">
-          <h3>You feel guilty every time you think about it</h3>
-          <p>Because you know it matters, and you know you've been putting it off.</p>
-        </div>
-        <div class="pain-card">
-          <h3>You don't trust what agents are telling you</h3>
-          <p>Every quote sounds different. Every rep pushes a different product. Who's actually on your side?</p>
-        </div>
-        <div class="pain-card">
-          <h3>You're worried you'll pay too much or buy the wrong thing</h3>
-          <p>You don't want to be the person who bought a policy that doesn't pay when it counts.</p>
-        </div>
-        <div class="pain-card">
-          <h3>You keep hoping there's a simpler way</h3>
-          <p>There is. It just isn't the loudest voice in your inbox.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. THE PROMISE
-       ============================================================ -->
-  <section class="section section--bg" id="m-promise" aria-labelledby="m-promise-heading">
-    <div class="container">
-      <div class="promise-inner">
-        <span class="eyebrow">The Promise</span>
-        <h2 id="m-promise-heading">Walk away knowing your family is covered — without spending a weekend on it.</h2>
-        <p>In one short call, you'll get a clear picture of what your family actually needs, exact monthly pricing from top-rated carriers, and a policy you understand line by line. No follow-up sales calls. No pressure. Just a plan you can live with — and one that keeps working long after we hang up.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6. COVERAGE OVERVIEW
+       4. SERVICES OVERVIEW
        ============================================================ -->
   <section class="section section--white" id="m-coverage" aria-labelledby="m-coverage-heading">
     <div class="container">
@@ -209,27 +165,27 @@
       </div>
 
       <div class="grid grid--5 services-overview-grid">
-        <a href="#m-life" class="service-chip">
+        <a href="https://summitshieldinsurance.netlify.app/services.html#life" class="service-chip">
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></div>
           <h4>Life Insurance</h4>
           <p>Protect your family's future</p>
         </a>
-        <a href="#m-health" class="service-chip">
+        <a href="https://summitshieldinsurance.netlify.app/services.html#health" class="service-chip">
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <h4>Health Insurance</h4>
           <p>Quality care, fair pricing</p>
         </a>
-        <a href="#m-auto" class="service-chip">
+        <a href="https://summitshieldinsurance.netlify.app/services.html#auto" class="service-chip">
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 11-4 0 2 2 0 014 0zm14 0a2 2 0 11-4 0 2 2 0 014 0zM3 17V9l2-5h14l2 5v8"/></svg></div>
           <h4>Auto Insurance</h4>
           <p>Drive with confidence</p>
         </a>
-        <a href="#m-home" class="service-chip">
+        <a href="https://summitshieldinsurance.netlify.app/services.html#home" class="service-chip">
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></div>
           <h4>Home Insurance</h4>
           <p>Guard your biggest asset</p>
         </a>
-        <a href="#m-business" class="service-chip">
+        <a href="https://summitshieldinsurance.netlify.app/services.html#business" class="service-chip">
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
           <h4>Business Insurance</h4>
           <p>Cover what you built</p>
@@ -239,275 +195,7 @@
   </section>
 
   <!-- ============================================================
-       6a. LIFE INSURANCE
-       ============================================================ -->
-  <section class="service-block" id="m-life" aria-labelledby="m-life-heading">
-    <div class="container service-block-inner">
-      <div class="service-media">
-        <img src="https://summitshieldinsurance.netlify.app/assets/img/service-life.jpg"
-          srcset="https://summitshieldinsurance.netlify.app/assets/img/service-life-480.jpg 480w, https://summitshieldinsurance.netlify.app/assets/img/service-life-800.jpg 800w, https://summitshieldinsurance.netlify.app/assets/img/service-life.jpg 1200w"
-          sizes="(max-width: 900px) 100vw, 42vw"
-          alt="A multi-generation family standing together on the beach at sunset" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="service-stat-chip"><strong>From $28/mo</strong><span>$500K term coverage</span></div>
-      </div>
-      <div class="service-copy">
-        <div class="service-icon-badge">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
-        </div>
-        <span class="eyebrow">Life Insurance</span>
-        <h2 id="m-life-heading">Life insurance that actually fits your family — explained in one honest call.</h2>
-        <p>Term, whole, and universal life policies compared side-by-side across 30+ A-rated carriers, so your family is protected without you overpaying for coverage you don't need.</p>
-
-        <div class="service-meta-grid">
-          <div>
-            <h5>Benefits</h5>
-            <ul>
-              <li>No-exam options for qualifying applicants</li>
-              <li>Coverage from $100K to $5M+</li>
-              <li>Rates locked for the life of your term</li>
-              <li>Living benefits riders available</li>
-            </ul>
-          </div>
-          <div>
-            <h5>What's included</h5>
-            <ul>
-              <li>Free 15-minute needs analysis</li>
-              <li>Side-by-side carrier comparison</li>
-              <li>Plain-English policy walkthrough</li>
-              <li>Annual coverage review</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="service-ideal-for">
-          <strong>Ideal for:</strong> parents, homeowners with a mortgage, business owners with a buy-sell agreement, and anyone whose household depends on their income.
-        </div>
-
-        <a href="#m-consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6b. HEALTH INSURANCE
-       ============================================================ -->
-  <section class="service-block service-block--alt is-reversed" id="m-health" aria-labelledby="m-health-heading">
-    <div class="container service-block-inner">
-      <div class="service-media">
-        <img src="https://summitshieldinsurance.netlify.app/assets/img/service-health.jpg"
-          srcset="https://summitshieldinsurance.netlify.app/assets/img/service-health-480.jpg 480w, https://summitshieldinsurance.netlify.app/assets/img/service-health-800.jpg 800w, https://summitshieldinsurance.netlify.app/assets/img/service-health.jpg 1200w"
-          sizes="(max-width: 900px) 100vw, 42vw"
-          alt="A smiling doctor with a stethoscope in a bright clinic hallway" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="service-stat-chip"><strong>$0</strong><span>cost to compare plans</span></div>
-      </div>
-      <div class="service-copy">
-        <div class="service-icon-badge">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <span class="eyebrow">Health Insurance</span>
-        <h2 id="m-health-heading">Quality coverage without the guesswork.</h2>
-        <p>We help individuals, families, and the self-employed navigate ACA marketplace plans, short-term coverage, and supplemental options — so you understand exactly what you're paying for.</p>
-
-        <div class="service-meta-grid">
-          <div>
-            <h5>Benefits</h5>
-            <ul>
-              <li>ACA marketplace &amp; off-exchange plans</li>
-              <li>Subsidy eligibility check included</li>
-              <li>Dental &amp; vision add-on options</li>
-              <li>Short-term gap coverage available</li>
-            </ul>
-          </div>
-          <div>
-            <h5>What's included</h5>
-            <ul>
-              <li>Free plan comparison consultation</li>
-              <li>Network &amp; prescription check</li>
-              <li>Enrollment support, start to finish</li>
-              <li>Year-round plan change assistance</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="service-ideal-for">
-          <strong>Ideal for:</strong> self-employed individuals, freelancers, early retirees, and anyone between employer coverage who needs a plan that actually gets used.
-        </div>
-
-        <a href="#m-consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6c. AUTO INSURANCE
-       ============================================================ -->
-  <section class="service-block" id="m-auto" aria-labelledby="m-auto-heading">
-    <div class="container service-block-inner">
-      <div class="service-media">
-        <img src="https://summitshieldinsurance.netlify.app/assets/img/service-auto.jpg"
-          srcset="https://summitshieldinsurance.netlify.app/assets/img/service-auto-480.jpg 480w, https://summitshieldinsurance.netlify.app/assets/img/service-auto-800.jpg 800w, https://summitshieldinsurance.netlify.app/assets/img/service-auto.jpg 1200w"
-          sizes="(max-width: 900px) 100vw, 42vw"
-          alt="A driver's hands on the steering wheel at dusk" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="service-stat-chip"><strong>$412/yr</strong><span>avg. bundling savings</span></div>
-      </div>
-      <div class="service-copy">
-        <div class="service-icon-badge">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 11-4 0 2 2 0 014 0zm14 0a2 2 0 11-4 0 2 2 0 014 0zM3 17V9l2-5h14l2 5v8"/></svg>
-        </div>
-        <span class="eyebrow">Auto Insurance</span>
-        <h2 id="m-auto-heading">Better coverage, better rates — without switching carriers every renewal.</h2>
-        <p>We shop liability, collision, and comprehensive coverage across dozens of carriers to find you a rate that reflects your actual driving record, not just a generic algorithm.</p>
-
-        <div class="service-meta-grid">
-          <div>
-            <h5>Benefits</h5>
-            <ul>
-              <li>Multi-vehicle &amp; multi-policy discounts</li>
-              <li>Accident forgiveness options</li>
-              <li>Roadside assistance &amp; rental reimbursement</li>
-              <li>Full coverage for leased/financed vehicles</li>
-            </ul>
-          </div>
-          <div>
-            <h5>What's included</h5>
-            <ul>
-              <li>Free rate comparison across carriers</li>
-              <li>Coverage gap review on current policy</li>
-              <li>Bundling analysis with home/renters</li>
-              <li>Claims support when you need it</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="service-ideal-for">
-          <strong>Ideal for:</strong> new drivers, multi-car households, anyone who just moved states, or drivers who haven't shopped their policy in 2+ years.
-        </div>
-
-        <a href="#m-quote" class="btn btn--primary">Get a Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6d. HOME INSURANCE
-       ============================================================ -->
-  <section class="service-block service-block--alt is-reversed" id="m-home" aria-labelledby="m-home-heading">
-    <div class="container service-block-inner">
-      <div class="service-media">
-        <img src="https://summitshieldinsurance.netlify.app/assets/img/service-home.jpg"
-          srcset="https://summitshieldinsurance.netlify.app/assets/img/service-home-480.jpg 480w, https://summitshieldinsurance.netlify.app/assets/img/service-home-800.jpg 800w, https://summitshieldinsurance.netlify.app/assets/img/service-home.jpg 1200w"
-          sizes="(max-width: 900px) 100vw, 42vw"
-          alt="A warmly lit family home at dusk" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="service-stat-chip"><strong>100%</strong><span>rebuild-cost coverage</span></div>
-      </div>
-      <div class="service-copy">
-        <div class="service-icon-badge">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>
-        </div>
-        <span class="eyebrow">Home Insurance</span>
-        <h2 id="m-home-heading">Protect the biggest investment you'll ever make.</h2>
-        <p>Dwelling, liability, and personal property coverage matched to your home's actual rebuild cost — plus guidance on flood, earthquake, and other add-ons your standard policy won't cover.</p>
-
-        <div class="service-meta-grid">
-          <div>
-            <h5>Benefits</h5>
-            <ul>
-              <li>Replacement cost, not depreciated value</li>
-              <li>Bundling discounts with auto policies</li>
-              <li>Flood &amp; earthquake riders available</li>
-              <li>Home business &amp; valuables coverage</li>
-            </ul>
-          </div>
-          <div>
-            <h5>What's included</h5>
-            <ul>
-              <li>Free coverage &amp; rebuild-cost review</li>
-              <li>Mortgage lender requirement check</li>
-              <li>Claims history impact assessment</li>
-              <li>Annual policy check-in</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="service-ideal-for">
-          <strong>Ideal for:</strong> new homeowners, anyone refinancing, landlords with rental property, and homeowners who haven't reviewed coverage since closing.
-        </div>
-
-        <a href="#m-quote" class="btn btn--primary">Get a Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6e. BUSINESS INSURANCE
-       ============================================================ -->
-  <section class="service-block" id="m-business" aria-labelledby="m-business-heading">
-    <div class="container service-block-inner">
-      <div class="service-media">
-        <img src="https://summitshieldinsurance.netlify.app/assets/img/service-business.jpg"
-          srcset="https://summitshieldinsurance.netlify.app/assets/img/service-business-480.jpg 480w, https://summitshieldinsurance.netlify.app/assets/img/service-business-800.jpg 800w, https://summitshieldinsurance.netlify.app/assets/img/service-business.jpg 1200w"
-          sizes="(max-width: 900px) 100vw, 42vw"
-          alt="A small business owner taking a card payment at her shop counter" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="service-stat-chip"><strong>1 advisor</strong><span>for every policy you hold</span></div>
-      </div>
-      <div class="service-copy">
-        <div class="service-icon-badge">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
-        </div>
-        <span class="eyebrow">Business Insurance</span>
-        <h2 id="m-business-heading">Cover what you built, from general liability to key person coverage.</h2>
-        <p>Small business owners get a single advisor to navigate general liability, commercial property, workers' comp, and key person life insurance — instead of piecing it together carrier by carrier.</p>
-
-        <div class="service-meta-grid">
-          <div>
-            <h5>Benefits</h5>
-            <ul>
-              <li>General liability &amp; commercial property</li>
-              <li>Workers' compensation compliance</li>
-              <li>Key person &amp; buy-sell life policies</li>
-              <li>Business owner's policy (BOP) bundling</li>
-            </ul>
-          </div>
-          <div>
-            <h5>What's included</h5>
-            <ul>
-              <li>Free risk assessment consultation</li>
-              <li>Coverage gap analysis</li>
-              <li>Multi-carrier commercial comparison</li>
-              <li>Annual policy &amp; payroll review</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="service-ideal-for">
-          <strong>Ideal for:</strong> small business owners, partnerships needing buy-sell funding, contractors, and any business with employees or commercial property.
-        </div>
-
-        <a href="#m-consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       7. PROOF OF RESULTS (navy stats band)
-       ============================================================ -->
-  <section class="section section--tight section--navy">
-    <div class="container">
-      <span class="eyebrow">Proof Of Results</span>
-      <h2>Twelve years, thousands of policies, one honest approach.</h2>
-      <p style="max-width:640px;">Our advisors started as captive agents for large carriers and left because recommending the same product to every family never sat right. Today we work independently, which means we get paid the same regardless of the carrier you choose — so the recommendation is always about you.</p>
-
-      <div class="stats-strip">
-        <div class="stat"><strong>1,200+</strong><span>Families protected</span></div>
-        <div class="stat"><strong>30+</strong><span>A-rated carriers compared</span></div>
-        <div class="stat"><strong>$1.4B</strong><span>In coverage placed</span></div>
-        <div class="stat"><strong>12 yrs</strong><span>Advising, not selling</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. WHY CHOOSE SUMMIT SHIELD (comparison)
+       5. WHY CHOOSE SUMMIT SHIELD (comparison)
        ============================================================ -->
   <section class="section section--white" id="m-why-us" aria-labelledby="m-why-heading">
     <div class="container">
@@ -539,7 +227,7 @@
   </section>
 
   <!-- ============================================================
-       9. OUR PROCESS
+       6. OUR PROCESS
        ============================================================ -->
   <section class="section section--bg" id="m-process" aria-labelledby="m-process-heading">
     <div class="container">
@@ -569,30 +257,7 @@
   </section>
 
   <!-- ============================================================
-       10. WHAT IT COSTS
-       ============================================================ -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="cost-block">
-        <div>
-          <span class="eyebrow">What It Costs</span>
-          <h2>The consultation is free. Coverage costs less than you think.</h2>
-          <p>A healthy 35-year-old can lock in <strong>$500,000 of term life coverage for around $28&ndash;$45 a month</strong> — less than most people spend on streaming subscriptions. The average family we work with pays under $50/month for the coverage they actually need.</p>
-          <p>Our advice is free. We're paid by the carrier only if you decide to move forward — and we earn the same commission regardless of which one you pick.</p>
-        </div>
-        <div class="cost-card">
-          <span class="eyebrow">Typical Monthly Cost</span>
-          <div class="cost-figure">$38<sup>/month</sup></div>
-          <p style="color:rgba(255,255,255,0.75);font-size:0.9375rem;">$500K in 20-year term coverage &middot; healthy non-smoker, age 35</p>
-          <hr>
-          <small>Compared to the average U.S. funeral cost of $9,420 and average outstanding mortgage of $236,000, coverage is the least expensive protection your family will ever own.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       11. TESTIMONIALS
+       7. TESTIMONIALS
        ============================================================ -->
   <section class="section section--bg" id="m-testimonials" aria-labelledby="m-testimonials-heading">
     <div class="container">
@@ -631,52 +296,7 @@
   </section>
 
   <!-- ============================================================
-       12. NO-RISK PROMISE (guarantee)
-       ============================================================ -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="promise-block">
-        <div>
-          <span class="eyebrow">No-Risk Promise</span>
-          <h2>If the call isn't useful, you owe us nothing — and we mean that.</h2>
-          <p>Every policy we recommend comes with a 30-day free look — cancel for any reason and get every dollar back. And if our first call doesn't give you real clarity on what coverage you need and what it should cost, we hang up and you've lost 15 minutes. That's the whole risk.</p>
-        </div>
-        <div class="callout-box">
-          <h4>The 15-Minute Guarantee</h4>
-          <p>You'll leave the call with a clear answer on coverage, price, and next steps — or we'll refer you to someone who can help. No hard sell. Ever.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       13. WHY NOW (urgency)
-       ============================================================ -->
-  <section class="section section--bg" id="m-why-now" aria-labelledby="m-why-now-heading">
-    <div class="container">
-      <div class="why-now-block">
-        <div>
-          <span class="eyebrow">Why Now</span>
-          <h2 id="m-why-now-heading">Life insurance gets more expensive every birthday. And every check-up.</h2>
-          <p>Rates are based on your age and health <em>today</em>. Waiting a year can add 8&ndash;12% to your monthly premium for the exact same coverage. A single new diagnosis — high blood pressure, a borderline blood test — can double it or take some carriers off the table entirely. The best time to lock in a rate is the version of you that exists right now.</p>
-          <a href="#m-consultation" class="btn btn--primary">Grab a Time This Week <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="rate-visual" role="img" aria-label="Chart of illustrative monthly premiums rising with age: 38 dollars at age 35, 42 dollars at 36, 58 dollars at 40, and 89 dollars at 45">
-          <h4>What waiting costs &middot; $500K, 20-yr term</h4>
-          <div class="rate-bars">
-            <div class="rate-bar-row"><span>Age 35</span><div class="rate-bar is-now" style="width:43%;"></div><strong>$38</strong></div>
-            <div class="rate-bar-row"><span>Age 36</span><div class="rate-bar" style="width:47%;"></div><strong>$42</strong></div>
-            <div class="rate-bar-row"><span>Age 40</span><div class="rate-bar" style="width:65%;"></div><strong>$58</strong></div>
-            <div class="rate-bar-row"><span>Age 45</span><div class="rate-bar" style="width:100%;"></div><strong>$89</strong></div>
-          </div>
-          <small>Illustrative monthly premiums for a healthy non-smoker. Your quote depends on health class and carrier.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       14. FAQ
+       8. FAQ
        ============================================================ -->
   <section class="section section--white" id="m-faq" aria-labelledby="m-faq-heading">
     <div class="container container--narrow">
@@ -757,22 +377,7 @@
   </section>
 
   <!-- ============================================================
-       15. CALL TO ACTION
-       ============================================================ -->
-  <section class="cta-band" aria-labelledby="m-cta-heading">
-    <div class="container">
-      <span class="eyebrow">Ready When You Are</span>
-      <h2 id="m-cta-heading">Give your family 15 minutes today. They'll thank you for the rest of their lives.</h2>
-      <p>Book your free consultation below. Real answers. No pressure. No pitch.</p>
-      <div class="cta-band-actions">
-        <a href="#m-consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="#m-quote" class="btn btn--on-navy">Or Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       16. CONTACT / BOOK
+       9. CONTACT / BOOK
        ============================================================ -->
   <section class="section section--bg" id="m-contact" aria-labelledby="m-contact-heading">
     <div class="container">
@@ -821,84 +426,32 @@
           </div>
         </div>
 
-        <!-- RIGHT: Consultation form / quote tabs -->
+        <!-- RIGHT: Summit Shield consultation form -->
         <div>
-          <!-- Hash anchors: land visitors at the top of the panel (not inside it)
-               so the tabs stay visible below the sticky header -->
+          <!-- Both CTA hashes land on the same consultation form. -->
           <span id="m-consultation" style="display:block;height:0;" aria-hidden="true"></span>
           <span id="m-quote" style="display:block;height:0;" aria-hidden="true"></span>
           <div class="embed-panel">
-            <div class="embed-tabs" role="tablist" aria-label="Contact method">
-              <button class="embed-tab is-active" role="tab" aria-selected="true" aria-controls="m-panel-consultation" id="m-tab-consultation" data-target="m-panel-consultation">Book a Consultation</button>
-              <button class="embed-tab" role="tab" aria-selected="false" aria-controls="m-panel-quote" id="m-tab-quote" data-target="m-panel-quote">Request a Quote</button>
-            </div>
-
-            <!-- CONSULTATION / GHL FORM PANEL -->
-            <div class="embed-panel-content is-active" id="m-panel-consultation" role="tabpanel" aria-labelledby="m-tab-consultation">
-              <h3>Book your free consultation</h3>
-              <p style="margin-bottom:var(--space-md);">Fill out the short form below and an advisor will reach out to schedule your free 15-minute call.</p>
-
-              <!--
-                ============================================================
-                GHL FORM EMBED — INSERT HERE
-                ============================================================
-                Replace the placeholder <div> below with your GoHighLevel
-                Form embed code. In GHL: Sites > Forms > Builder > select
-                your form > Integrate > copy the iframe embed snippet and
-                paste it in place of the placeholder.
-
-                Example of what GHL typically outputs:
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/form/YOUR_FORM_ID"
-                  style="width:100%;height:600px;border:none;"
-                  id="m-YOUR_FORM_ID">
-                </iframe>
-                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-
-                (Optional: a GHL Calendar embed works in this same spot if
-                you'd rather clients self-book — Calendars > Embed Code.)
-                ============================================================
-              -->
-              <div class="ghl-embed-placeholder">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                <strong>GoHighLevel Form Embed Goes Here</strong>
-                <p>Paste your GHL Form iframe embed code inside this container to replace this placeholder.</p>
-                <code>&lt;!-- GHL_FORM_EMBED --&gt;</code>
-              </div>
-              <!-- END GHL FORM EMBED -->
-
-            </div>
-
-            <!-- QUOTE PANEL — simple email capture -->
-            <div class="embed-panel-content" id="m-panel-quote" role="tabpanel" aria-labelledby="m-tab-quote">
-              <h3>Request a free quote</h3>
-              <p style="margin-bottom:var(--space-md);">Enter your email and an advisor will send your quote options to your inbox — usually the same business day.</p>
-
-              <!--
-                ============================================================
-                QUOTE FORM — Netlify Forms
-                Submissions are collected by Netlify and forwarded to
-                summitshieldinsure@gmail.com.
-                One-time setup in Netlify: Site > Forms > Notifications >
-                "Email notification" > summitshieldinsure@gmail.com.
-
-                If this page is ever rebuilt inside GoHighLevel, replace
-                this form with a GHL form embed instead (Netlify Forms
-                only works on Netlify hosting).
-                ============================================================
-              -->
-              <form class="quote-form" name="quote-request" method="POST" action="https://summitshieldinsurance.netlify.app/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="quote-request">
-                <p class="visually-hidden" aria-hidden="true">
-                  <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-                </p>
-                <label for="m-quote-email">Your email address</label>
-                <input type="email" id="m-quote-email" name="email" required autocomplete="email" placeholder="you@example.com">
-                <button type="submit" class="btn btn--primary btn--block">Request My Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
-                <p class="quote-form-note">Your reply comes from <strong>summitshieldinsure@gmail.com</strong> — real numbers, no calls, no spam, and your email is never sold or shared.</p>
-              </form>
-
-            </div>
+            <h3>Book your free consultation</h3>
+            <p style="margin-bottom:var(--space-md);">Complete the form below and an advisor will follow up about your coverage needs.</p>
+            <iframe
+              src="https://links.smilesociety.online/widget/form/BMCvnCSHkyDRszN6VevH"
+              style="width:100%;height:100%;border:none;border-radius:0px"
+              id="inline-m-BMCvnCSHkyDRszN6VevH"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Summit Shield - Free Consultation"
+              data-height="1551"
+              data-layout-iframe-id="inline-m-BMCvnCSHkyDRszN6VevH"
+              data-form-id="BMCvnCSHkyDRszN6VevH"
+              title="Summit Shield - Free Consultation">
+            </iframe>
+            <script src="https://links.smilesociety.online/js/form_embed.js"></script>
           </div>
         </div>
 
@@ -934,11 +487,11 @@
       <div class="footer-col">
         <h5>Coverage</h5>
         <ul>
-          <li><a href="#m-life">Life Insurance</a></li>
-          <li><a href="#m-health">Health Insurance</a></li>
-          <li><a href="#m-auto">Auto Insurance</a></li>
-          <li><a href="#m-home">Home Insurance</a></li>
-          <li><a href="#m-business">Business Insurance</a></li>
+          <li><a href="https://summitshieldinsurance.netlify.app/services.html#life">Life Insurance</a></li>
+          <li><a href="https://summitshieldinsurance.netlify.app/services.html#health">Health Insurance</a></li>
+          <li><a href="https://summitshieldinsurance.netlify.app/services.html#auto">Auto Insurance</a></li>
+          <li><a href="https://summitshieldinsurance.netlify.app/services.html#home">Home Insurance</a></li>
+          <li><a href="https://summitshieldinsurance.netlify.app/services.html#business">Business Insurance</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1009,32 +562,6 @@
       });
     });
 
-    // Consultation / quote tabs
-    var tabs = root.querySelectorAll('.embed-tab');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var target = root.querySelector('#' + tab.getAttribute('data-target'));
-        tabs.forEach(function (t) {
-          t.classList.remove('is-active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        root.querySelectorAll('.embed-panel-content').forEach(function (p) { p.classList.remove('is-active'); });
-        tab.classList.add('is-active');
-        tab.setAttribute('aria-selected', 'true');
-        if (target) target.classList.add('is-active');
-      });
-    });
-
-    // Deep links: accept both #m-quote and #quote style hashes
-    function openTabFromHash() {
-      var hash = window.location.hash.replace('#', '').replace(/^m-/, '');
-      var tab = null;
-      if (hash === 'quote') tab = root.querySelector('[data-target="m-panel-quote"]');
-      if (hash === 'consultation') tab = root.querySelector('[data-target="m-panel-consultation"]');
-      if (tab) tab.click();
-    }
-    openTabFromHash();
-    window.addEventListener('hashchange', openTabFromHash);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -1,21 +1,20 @@
 <!-- ============================================================
-     SUMMIT SHIELD INSURANCE — FULL PAGE BLOCK (HTML + JS)
-     Fully responsive: phones, tablets, and desktop from this one
-     block. Paste into: one GHL "Custom JS/HTML" element inside a
-     full-width section — set the section/row/element padding to 0
-     and width to full/100% so GHL doesn't box the design in.
+     SUMMIT SHIELD INSURANCE — UNIVERSAL PAGE BLOCK (HTML + JS)
+     Use this ONE block for desktop, tablet, and mobile. Its script
+     measures the block itself (not only the browser viewport), so it
+     also responds correctly inside GHL's narrow mobile editor. Paste
+     into one full-width Custom JS/HTML element; set its surrounding
+     section/row/element padding to 0 and width to full/100%.
+     Do not add 4-PAGE-BLOCK-MOBILE.html when using this block.
 
      BEFORE PUBLISHING:
      1. Also paste 1-CUSTOM-CSS.css into Custom CSS and
         2-HEAD-CODE.html into the Header Code (fonts + mobile
         viewport tag live there).
-     2. Replace the GHL_FORM_EMBED placeholder (search for it below)
-        with your real GHL form iframe embed code.
-     3. The "Request a Quote" email form posts to Netlify Forms and
-        only records submissions on the Netlify-hosted site. Inside
-        GHL, replace that small form with a second GHL form embed —
-        or keep the button linking to mailto:summitshieldinsure@gmail.com.
-     4. Images load from https://summitshieldinsurance.netlify.app. To self-host in GHL instead,
+     2. The Summit Shield consultation form opens in a popup: every
+        CTA on the page opens the same form modal at the end of this
+        block (the old quote CTAs were consolidated into it).
+     3. Images load from https://summitshieldinsurance.netlify.app. To self-host in GHL instead,
         upload the files from assets/img/ to your GHL Media Library
         and swap the URLs.
      ============================================================ -->
@@ -43,7 +42,6 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
       <li class="nav-cta">
-        <a href="#quote" class="btn btn--secondary btn--sm">Get a Free Quote</a>
         <a href="#consultation" class="btn btn--primary btn--sm">Book a Free Consultation</a>
       </li>
     </ul>
@@ -64,9 +62,9 @@
 
         <div class="hero-actions">
           <a href="#consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="#quote" class="btn btn--secondary">Get a Free Quote</a>
+          <a href="#coverage" class="btn btn--secondary">See What We Cover</a>
         </div>
-        <p class="hero-note">No obligation &middot; No medical exam options available on select policies</p>
+        <p class="hero-note">Free 15-minute call &middot; No obligation &middot; No-exam options on select policies</p>
 
         <div class="hero-stats">
           <div class="hero-stat"><strong>1,200+</strong><span>Families protected</span></div>
@@ -122,7 +120,7 @@
       </div>
       <div class="trust-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Same business day response
+        12+ years of independent advice
       </div>
     </div>
   </section>
@@ -144,50 +142,7 @@
   </section>
 
   <!-- ============================================================
-       4. IF THIS SOUNDS FAMILIAR (pain points)
-       ============================================================ -->
-  <section class="section section--white" id="sounds-familiar" aria-labelledby="familiar-heading">
-    <div class="container">
-      <div class="section-head--left">
-        <span class="eyebrow">If This Sounds Familiar</span>
-        <h2 id="familiar-heading">You're not lazy. You're just tired of being sold to.</h2>
-      </div>
-      <div class="grid grid--2">
-        <div class="pain-card">
-          <h3>You feel guilty every time you think about it</h3>
-          <p>Because you know it matters, and you know you've been putting it off.</p>
-        </div>
-        <div class="pain-card">
-          <h3>You don't trust what agents are telling you</h3>
-          <p>Every quote sounds different. Every rep pushes a different product. Who's actually on your side?</p>
-        </div>
-        <div class="pain-card">
-          <h3>You're worried you'll pay too much or buy the wrong thing</h3>
-          <p>You don't want to be the person who bought a policy that doesn't pay when it counts.</p>
-        </div>
-        <div class="pain-card">
-          <h3>You keep hoping there's a simpler way</h3>
-          <p>There is. It just isn't the loudest voice in your inbox.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. THE PROMISE
-       ============================================================ -->
-  <section class="section section--bg" id="promise" aria-labelledby="promise-heading">
-    <div class="container">
-      <div class="promise-inner">
-        <span class="eyebrow">The Promise</span>
-        <h2 id="promise-heading">Walk away knowing your family is covered — without spending a weekend on it.</h2>
-        <p>In one short call, you'll get a clear picture of what your family actually needs, exact monthly pricing from top-rated carriers, and a policy you understand line by line. No follow-up sales calls. No pressure. Just a plan you can live with — and one that keeps working long after we hang up.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6. COVERAGE OVERVIEW
+       4. SERVICES OVERVIEW
        ============================================================ -->
   <section class="section section--white" id="coverage" aria-labelledby="coverage-heading">
     <div class="container">
@@ -228,7 +183,7 @@
   </section>
 
   <!-- ============================================================
-       6a. LIFE INSURANCE
+       4a. LIFE INSURANCE
        ============================================================ -->
   <section class="service-block" id="life" aria-labelledby="life-heading">
     <div class="container service-block-inner">
@@ -277,8 +232,9 @@
     </div>
   </section>
 
+
   <!-- ============================================================
-       6b. HEALTH INSURANCE
+       4b. HEALTH INSURANCE
        ============================================================ -->
   <section class="service-block service-block--alt is-reversed" id="health" aria-labelledby="health-heading">
     <div class="container service-block-inner">
@@ -327,8 +283,9 @@
     </div>
   </section>
 
+
   <!-- ============================================================
-       6c. AUTO INSURANCE
+       4c. AUTO INSURANCE
        ============================================================ -->
   <section class="service-block" id="auto" aria-labelledby="auto-heading">
     <div class="container service-block-inner">
@@ -372,13 +329,14 @@
           <strong>Ideal for:</strong> new drivers, multi-car households, anyone who just moved states, or drivers who haven't shopped their policy in 2+ years.
         </div>
 
-        <a href="#quote" class="btn btn--primary">Get a Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="#consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
+
   <!-- ============================================================
-       6d. HOME INSURANCE
+       4d. HOME INSURANCE
        ============================================================ -->
   <section class="service-block service-block--alt is-reversed" id="home" aria-labelledby="home-heading">
     <div class="container service-block-inner">
@@ -422,13 +380,14 @@
           <strong>Ideal for:</strong> new homeowners, anyone refinancing, landlords with rental property, and homeowners who haven't reviewed coverage since closing.
         </div>
 
-        <a href="#quote" class="btn btn--primary">Get a Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="#consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
+
   <!-- ============================================================
-       6e. BUSINESS INSURANCE
+       4e. BUSINESS INSURANCE
        ============================================================ -->
   <section class="service-block" id="business" aria-labelledby="business-heading">
     <div class="container service-block-inner">
@@ -478,25 +437,7 @@
   </section>
 
   <!-- ============================================================
-       7. PROOF OF RESULTS (navy stats band)
-       ============================================================ -->
-  <section class="section section--tight section--navy">
-    <div class="container">
-      <span class="eyebrow">Proof Of Results</span>
-      <h2>Twelve years, thousands of policies, one honest approach.</h2>
-      <p style="max-width:640px;">Our advisors started as captive agents for large carriers and left because recommending the same product to every family never sat right. Today we work independently, which means we get paid the same regardless of the carrier you choose — so the recommendation is always about you.</p>
-
-      <div class="stats-strip">
-        <div class="stat"><strong>1,200+</strong><span>Families protected</span></div>
-        <div class="stat"><strong>30+</strong><span>A-rated carriers compared</span></div>
-        <div class="stat"><strong>$1.4B</strong><span>In coverage placed</span></div>
-        <div class="stat"><strong>12 yrs</strong><span>Advising, not selling</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. WHY CHOOSE SUMMIT SHIELD (comparison)
+       5. WHY CHOOSE SUMMIT SHIELD (comparison)
        ============================================================ -->
   <section class="section section--white" id="why-us" aria-labelledby="why-heading">
     <div class="container">
@@ -528,7 +469,7 @@
   </section>
 
   <!-- ============================================================
-       9. OUR PROCESS
+       6. OUR PROCESS
        ============================================================ -->
   <section class="section section--bg" id="process" aria-labelledby="process-heading">
     <div class="container">
@@ -558,30 +499,7 @@
   </section>
 
   <!-- ============================================================
-       10. WHAT IT COSTS
-       ============================================================ -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="cost-block">
-        <div>
-          <span class="eyebrow">What It Costs</span>
-          <h2>The consultation is free. Coverage costs less than you think.</h2>
-          <p>A healthy 35-year-old can lock in <strong>$500,000 of term life coverage for around $28&ndash;$45 a month</strong> — less than most people spend on streaming subscriptions. The average family we work with pays under $50/month for the coverage they actually need.</p>
-          <p>Our advice is free. We're paid by the carrier only if you decide to move forward — and we earn the same commission regardless of which one you pick.</p>
-        </div>
-        <div class="cost-card">
-          <span class="eyebrow">Typical Monthly Cost</span>
-          <div class="cost-figure">$38<sup>/month</sup></div>
-          <p style="color:rgba(255,255,255,0.75);font-size:0.9375rem;">$500K in 20-year term coverage &middot; healthy non-smoker, age 35</p>
-          <hr>
-          <small>Compared to the average U.S. funeral cost of $9,420 and average outstanding mortgage of $236,000, coverage is the least expensive protection your family will ever own.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       11. TESTIMONIALS
+       7. TESTIMONIALS
        ============================================================ -->
   <section class="section section--bg" id="testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
@@ -620,52 +538,7 @@
   </section>
 
   <!-- ============================================================
-       12. NO-RISK PROMISE (guarantee)
-       ============================================================ -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="promise-block">
-        <div>
-          <span class="eyebrow">No-Risk Promise</span>
-          <h2>If the call isn't useful, you owe us nothing — and we mean that.</h2>
-          <p>Every policy we recommend comes with a 30-day free look — cancel for any reason and get every dollar back. And if our first call doesn't give you real clarity on what coverage you need and what it should cost, we hang up and you've lost 15 minutes. That's the whole risk.</p>
-        </div>
-        <div class="callout-box">
-          <h4>The 15-Minute Guarantee</h4>
-          <p>You'll leave the call with a clear answer on coverage, price, and next steps — or we'll refer you to someone who can help. No hard sell. Ever.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       13. WHY NOW (urgency)
-       ============================================================ -->
-  <section class="section section--bg" id="why-now" aria-labelledby="why-now-heading">
-    <div class="container">
-      <div class="why-now-block">
-        <div>
-          <span class="eyebrow">Why Now</span>
-          <h2 id="why-now-heading">Life insurance gets more expensive every birthday. And every check-up.</h2>
-          <p>Rates are based on your age and health <em>today</em>. Waiting a year can add 8&ndash;12% to your monthly premium for the exact same coverage. A single new diagnosis — high blood pressure, a borderline blood test — can double it or take some carriers off the table entirely. The best time to lock in a rate is the version of you that exists right now.</p>
-          <a href="#consultation" class="btn btn--primary">Grab a Time This Week <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="rate-visual" role="img" aria-label="Chart of illustrative monthly premiums rising with age: 38 dollars at age 35, 42 dollars at 36, 58 dollars at 40, and 89 dollars at 45">
-          <h4>What waiting costs &middot; $500K, 20-yr term</h4>
-          <div class="rate-bars">
-            <div class="rate-bar-row"><span>Age 35</span><div class="rate-bar is-now" style="width:43%;"></div><strong>$38</strong></div>
-            <div class="rate-bar-row"><span>Age 36</span><div class="rate-bar" style="width:47%;"></div><strong>$42</strong></div>
-            <div class="rate-bar-row"><span>Age 40</span><div class="rate-bar" style="width:65%;"></div><strong>$58</strong></div>
-            <div class="rate-bar-row"><span>Age 45</span><div class="rate-bar" style="width:100%;"></div><strong>$89</strong></div>
-          </div>
-          <small>Illustrative monthly premiums for a healthy non-smoker. Your quote depends on health class and carrier.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       14. FAQ
+       8. FAQ
        ============================================================ -->
   <section class="section section--white" id="faq" aria-labelledby="faq-heading">
     <div class="container container--narrow">
@@ -746,22 +619,7 @@
   </section>
 
   <!-- ============================================================
-       15. CALL TO ACTION
-       ============================================================ -->
-  <section class="cta-band" aria-labelledby="cta-heading">
-    <div class="container">
-      <span class="eyebrow">Ready When You Are</span>
-      <h2 id="cta-heading">Give your family 15 minutes today. They'll thank you for the rest of their lives.</h2>
-      <p>Book your free consultation below. Real answers. No pressure. No pitch.</p>
-      <div class="cta-band-actions">
-        <a href="#consultation" class="btn btn--primary">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="#quote" class="btn btn--on-navy">Or Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       16. CONTACT / BOOK
+       9. CONTACT / BOOK
        ============================================================ -->
   <section class="section section--bg" id="contact" aria-labelledby="contact-heading">
     <div class="container">
@@ -776,7 +634,7 @@
         <div>
           <div class="contact-info-card">
             <h3>Contact information</h3>
-            <p style="color:rgba(255,255,255,0.75);">Reach us directly, or use the form to get started.</p>
+            <p style="color:rgba(255,255,255,0.75);">Reach us directly, or book your free consultation — whichever is easier.</p>
 
             <ul class="contact-info-list">
               <li>
@@ -810,84 +668,22 @@
           </div>
         </div>
 
-        <!-- RIGHT: Consultation form / quote tabs -->
+        <!-- RIGHT: consultation CTA — the form itself opens in a popup -->
         <div>
-          <!-- Hash anchors: land visitors at the top of the panel (not inside it)
-               so the tabs stay visible below the sticky header -->
+          <!-- Both CTA hashes land on this panel; its button (like every
+               other CTA) opens the form modal at the end of the block. -->
           <span id="consultation" style="display:block;height:0;" aria-hidden="true"></span>
           <span id="quote" style="display:block;height:0;" aria-hidden="true"></span>
           <div class="embed-panel">
-            <div class="embed-tabs" role="tablist" aria-label="Contact method">
-              <button class="embed-tab is-active" role="tab" aria-selected="true" aria-controls="panel-consultation" id="tab-consultation" data-target="panel-consultation">Book a Consultation</button>
-              <button class="embed-tab" role="tab" aria-selected="false" aria-controls="panel-quote" id="tab-quote" data-target="panel-quote">Request a Quote</button>
-            </div>
-
-            <!-- CONSULTATION / GHL FORM PANEL -->
-            <div class="embed-panel-content is-active" id="panel-consultation" role="tabpanel" aria-labelledby="tab-consultation">
-              <h3>Book your free consultation</h3>
-              <p style="margin-bottom:var(--space-md);">Fill out the short form below and an advisor will reach out to schedule your free 15-minute call.</p>
-
-              <!--
-                ============================================================
-                GHL FORM EMBED — INSERT HERE
-                ============================================================
-                Replace the placeholder <div> below with your GoHighLevel
-                Form embed code. In GHL: Sites > Forms > Builder > select
-                your form > Integrate > copy the iframe embed snippet and
-                paste it in place of the placeholder.
-
-                Example of what GHL typically outputs:
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/form/YOUR_FORM_ID"
-                  style="width:100%;height:600px;border:none;"
-                  id="YOUR_FORM_ID">
-                </iframe>
-                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-
-                (Optional: a GHL Calendar embed works in this same spot if
-                you'd rather clients self-book — Calendars > Embed Code.)
-                ============================================================
-              -->
-              <div class="ghl-embed-placeholder">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                <strong>GoHighLevel Form Embed Goes Here</strong>
-                <p>Paste your GHL Form iframe embed code inside this container to replace this placeholder.</p>
-                <code>&lt;!-- GHL_FORM_EMBED --&gt;</code>
-              </div>
-              <!-- END GHL FORM EMBED -->
-
-            </div>
-
-            <!-- QUOTE PANEL — simple email capture -->
-            <div class="embed-panel-content" id="panel-quote" role="tabpanel" aria-labelledby="tab-quote">
-              <h3>Request a free quote</h3>
-              <p style="margin-bottom:var(--space-md);">Enter your email and an advisor will send your quote options to your inbox — usually the same business day.</p>
-
-              <!--
-                ============================================================
-                QUOTE FORM — Netlify Forms
-                Submissions are collected by Netlify and forwarded to
-                summitshieldinsure@gmail.com.
-                One-time setup in Netlify: Site > Forms > Notifications >
-                "Email notification" > summitshieldinsure@gmail.com.
-
-                If this page is ever rebuilt inside GoHighLevel, replace
-                this form with a GHL form embed instead (Netlify Forms
-                only works on Netlify hosting).
-                ============================================================
-              -->
-              <form class="quote-form" name="quote-request" method="POST" action="https://summitshieldinsurance.netlify.app/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="quote-request">
-                <p class="visually-hidden" aria-hidden="true">
-                  <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-                </p>
-                <label for="quote-email">Your email address</label>
-                <input type="email" id="quote-email" name="email" required autocomplete="email" placeholder="you@example.com">
-                <button type="submit" class="btn btn--primary btn--block">Request My Free Quote <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
-                <p class="quote-form-note">Your reply comes from <strong>summitshieldinsure@gmail.com</strong> — real numbers, no calls, no spam, and your email is never sold or shared.</p>
-              </form>
-
-            </div>
+            <h3>Book your free consultation</h3>
+            <p style="margin-bottom:var(--space-md);">One short form, one honest 15-minute call. Here's how it works:</p>
+            <ol class="embed-panel-steps">
+              <li><strong>Answer a few quick questions</strong> — takes about a minute, no paperwork.</li>
+              <li><strong>Talk with a licensed advisor</strong> on a free 15-minute call about your actual life.</li>
+              <li><strong>Get your top options side-by-side</strong> in plain English. You pick, or you walk.</li>
+            </ol>
+            <button type="button" class="btn btn--primary btn--block js-ss-open-form">Book My Free Consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+            <p class="form-cta-note">Free &middot; No obligation &middot; No spam — ever</p>
           </div>
         </div>
 
@@ -963,6 +759,19 @@
   if (!root) return;
 
   function init() {
+    // GHL can render a narrow mobile canvas inside a desktop-width editor.
+    // Measure this block directly so one HTML block works in both contexts.
+    function syncResponsiveLayout() {
+      var isNarrow = root.getBoundingClientRect().width <= 980;
+      root.classList.toggle('is-mobile-layout', isNarrow);
+    }
+    syncResponsiveLayout();
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(syncResponsiveLayout).observe(root);
+    } else {
+      window.addEventListener('resize', syncResponsiveLayout, { passive: true });
+    }
+
     // Mobile nav toggle
     var toggle = root.querySelector('.nav-toggle');
     var links = root.querySelector('#primary-nav');
@@ -979,7 +788,7 @@
         });
       });
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 880) {
+        if (root.getBoundingClientRect().width > 980) {
           toggle.setAttribute('aria-expanded', 'false');
           links.classList.remove('is-open');
         }
@@ -1003,50 +812,6 @@
       });
     });
 
-    // Consultation / quote tabs (with arrow-key support)
-    var tabs = root.querySelectorAll('.embed-tab');
-    var tablist = root.querySelector('.embed-tabs');
-    if (tablist) {
-      tablist.addEventListener('keydown', function (e) {
-        var list = Array.prototype.slice.call(tabs);
-        var current = list.indexOf(document.activeElement);
-        if (current === -1) return;
-        var next = null;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (current + 1) % list.length;
-        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (current - 1 + list.length) % list.length;
-        else if (e.key === 'Home') next = 0;
-        else if (e.key === 'End') next = list.length - 1;
-        if (next === null) return;
-        e.preventDefault();
-        list[next].focus();
-        list[next].click();
-      });
-    }
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var target = root.querySelector('#' + tab.getAttribute('data-target'));
-        tabs.forEach(function (t) {
-          t.classList.remove('is-active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        root.querySelectorAll('.embed-panel-content').forEach(function (p) { p.classList.remove('is-active'); });
-        tab.classList.add('is-active');
-        tab.setAttribute('aria-selected', 'true');
-        if (target) target.classList.add('is-active');
-      });
-    });
-
-    // Deep links: #quote / #consultation open the matching tab
-    function openTabFromHash() {
-      var hash = window.location.hash.replace('#', '');
-      var tab = null;
-      if (hash === 'quote') tab = root.querySelector('[data-target="panel-quote"]');
-      if (hash === 'consultation') tab = root.querySelector('[data-target="panel-consultation"]');
-      if (tab) tab.click();
-    }
-    openTabFromHash();
-    window.addEventListener('hashchange', openTabFromHash);
-
     // Header shadow on scroll
     var header = root.querySelector('.site-header');
     if (header) {
@@ -1069,6 +834,246 @@
      GHL DEFENSES section of 1-CUSTOM-CSS.css). Deliberately outside
      the .ss-root wrapper so position:fixed pins to the screen. -->
 <div class="m-cta-bar" aria-label="Quick actions">
-  <a href="#consultation" class="btn btn--primary">Book Free Consultation</a>
-  <a href="#quote" class="btn btn--secondary">Get a Quote</a>
+  <a href="#consultation" class="btn btn--primary">Book My Free Consultation</a>
 </div>
+
+<!-- ============================================================
+     CONSULTATION FORM POPUP
+     Also outside .ss-root so position:fixed pins to the screen.
+     The GHL form uses the INLINE layout inside our own modal:
+     GHL's POPUP layout has no click-to-open API (it auto-opens on
+     page load), so the modal chrome is ours and the form loads
+     invisibly at page load — the popup opens instantly.
+     ============================================================ -->
+<style>
+/* Modal styles live INSIDE the block (not 1-CUSTOM-CSS.css) so the
+   popup keeps working even if the Custom CSS paste is out of date.
+   Every var() carries a hard-coded fallback for the same reason. */
+/* Baseline guards for the same stale-CSS case: keep raw images from
+   widening the page (and therefore the fixed modal) past the screen.
+   :where() zeroes the specificity so these NEVER outrank the real
+   stylesheet's sizing rules (e.g. .nav-logo img { height: 38px }). */
+:where(#ss-page) { overflow-x: clip; max-width: 100%; }
+:where(#ss-page img) { max-width: 100%; height: auto; }
+.ss-form-modal, .ss-form-modal *, .ss-form-modal *::before, .ss-form-modal *::after { box-sizing: border-box; }
+.ss-form-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 700; /* above sticky header (500) and mobile CTA bar (600) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: var(--font-body, 'Inter', 'Segoe UI', Arial, sans-serif);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+.ss-form-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
+.ss-form-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 15, 34, 0.62);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.ss-form-modal-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(620px, 100%);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(4, 15, 34, 0.4);
+  overflow: hidden;
+  transform: translateY(12px);
+  transition: transform 220ms ease;
+}
+.ss-form-modal.is-open .ss-form-modal-panel { transform: translateY(0); }
+.ss-form-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--ss-border, #E2E8F0);
+  flex-shrink: 0;
+}
+.ss-form-modal-head strong {
+  font-family: var(--font-heading, 'Poppins', 'Segoe UI', Arial, sans-serif);
+  font-size: 1.0625rem;
+  color: var(--ss-primary, #0B2D5C);
+}
+.ss-form-modal-close {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ss-border, #E2E8F0);
+  border-radius: 50%;
+  background: var(--ss-bg, #F5F7FA);
+  color: var(--ss-primary, #0B2D5C);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.ss-form-modal-close:hover { background: var(--ss-border, #E2E8F0); }
+.ss-form-modal-body {
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px;
+}
+/* Loading spinner behind the (transparent-until-painted) iframe */
+.ss-form-modal-body::before {
+  content: '';
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  border-radius: 50%;
+  border: 3px solid var(--ss-border, #E2E8F0);
+  border-top-color: var(--ss-secondary, #1E5AA8);
+  animation: ss-modal-spin 0.8s linear infinite;
+}
+@keyframes ss-modal-spin { to { transform: rotate(360deg); } }
+.ss-form-modal-body iframe[data-form-id] {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: none;
+  /* visible while the form loads; form_embed.js sets the real height */
+  min-height: min(70vh, 640px);
+}
+@media (max-width: 480px) {
+  .ss-form-modal { padding: 10px; }
+  .ss-form-modal-panel {
+    max-height: calc(100vh - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ss-form-modal, .ss-form-modal-panel { transition-duration: 0.01ms; }
+  .ss-form-modal-body::before { animation-duration: 2s; }
+}
+</style>
+<div class="ss-form-modal" id="ss-form-modal" role="dialog" aria-modal="true" aria-label="Book your free consultation">
+  <div class="ss-form-modal-backdrop" data-ss-modal-close></div>
+  <div class="ss-form-modal-panel">
+    <div class="ss-form-modal-head">
+      <strong>Book your free consultation</strong>
+      <button type="button" class="ss-form-modal-close" data-ss-modal-close aria-label="Close form">&times;</button>
+    </div>
+    <div class="ss-form-modal-body">
+      <iframe
+        src="https://links.smilesociety.online/widget/form/BMCvnCSHkyDRszN6VevH"
+        style="width:100%;height:100%;border:none;border-radius:0px"
+        id="inline-BMCvnCSHkyDRszN6VevH"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Summit Shield - Free Consultation"
+        data-height="1551"
+        data-layout-iframe-id="inline-BMCvnCSHkyDRszN6VevH"
+        data-form-id="BMCvnCSHkyDRszN6VevH"
+        title="Summit Shield - Free Consultation">
+      </iframe>
+      <script src="https://links.smilesociety.online/js/form_embed.js"></script>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Popup wiring. Placed after the modal markup so it can run immediately
+   even when GHL injects the block after DOMContentLoaded. */
+(function () {
+  'use strict';
+  var modal = document.getElementById('ss-form-modal');
+  var pageRoot = document.getElementById('ss-page');
+  if (!modal) return;
+  var lastTrigger = null;
+
+  function openModal(trigger) {
+    lastTrigger = trigger || null;
+    modal.classList.add('is-open');
+    // Lock page scroll without the layout jump the vanishing scrollbar causes
+    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbar > 0) document.body.style.paddingRight = scrollbar + 'px';
+    document.body.style.overflow = 'hidden';
+    var closeBtn = modal.querySelector('.ss-form-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+    lastTrigger = null;
+  }
+
+  // Every consultation/quote CTA opens the popup (anchors keep their
+  // hash as a no-JS fallback that scrolls to the contact panel).
+  // Delegate clicks because GHL may recreate or wrap elements after this
+  // block initializes. This keeps every CTA working on the published page.
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('a[href="#consultation"], a[href="#quote"], .js-ss-open-form');
+    if (!el) return;
+    e.preventDefault();
+    openModal(el);
+  });
+  document.querySelectorAll('a[href="#consultation"], a[href="#quote"], .js-ss-open-form')
+    .forEach(function (el) { el.setAttribute('aria-haspopup', 'dialog'); });
+
+  // Explicitly handle in-page navigation. Some GHL page wrappers suppress
+  // native fragment scrolling inside Custom HTML blocks.
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!link || !pageRoot || !pageRoot.contains(link) || link.matches('a[href="#consultation"], a[href="#quote"]')) return;
+    var id = link.getAttribute('href').slice(1);
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+    history.replaceState(null, '', '#' + id);
+  });
+
+  modal.querySelectorAll('[data-ss-modal-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    // Keep Tab inside the open dialog
+    if (e.key === 'Tab') {
+      var focusables = modal.querySelectorAll('button, iframe');
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (!modal.contains(document.activeElement)) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+})();
+</script>

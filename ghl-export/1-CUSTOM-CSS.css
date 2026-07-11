@@ -187,7 +187,7 @@ select:focus-visible,
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: clamp(4.5rem, 8vw, var(--space-2xl)) 0;
 }
 
 .section--tight {
@@ -209,6 +209,9 @@ select:focus-visible,
   margin: 0 auto var(--space-xl);
   text-align: center;
 }
+.section-head h2 { max-width: 19ch; margin-inline: auto; }
+.section-head > p { max-width: 62ch; margin-inline: auto; }
+.section-head--left h2 { max-width: 22ch; }
 .section-head--left {
   margin: 0 0 var(--space-xl);
   text-align: left;
@@ -507,7 +510,7 @@ select:focus-visible,
    7. HERO
    ========================================================================== */
 .hero {
-  padding: var(--space-2xl) 0 var(--space-xl);
+  padding: clamp(4rem, 8vw, var(--space-2xl)) 0 clamp(3.5rem, 6vw, var(--space-xl));
   background: linear-gradient(180deg, #F5F7FA 0%, #EEF2F8 100%);
   overflow: hidden;
 }
@@ -534,7 +537,13 @@ select:focus-visible,
   margin-bottom: var(--space-md);
 }
 
-.hero h1 { margin-bottom: var(--space-md); }
+.hero h1 {
+  max-width: 15ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
 .hero-sub {
   font-size: 1.125rem;
   color: var(--ss-ink-muted);
@@ -1153,9 +1162,11 @@ select:focus-visible,
 /* Services overview grid (top of services page) */
 .services-overview-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--space-sm);
 }
+.services-overview-grid .service-chip:nth-child(-n+2) { grid-column: span 3; }
+.services-overview-grid .service-chip:nth-child(n+3) { grid-column: span 2; }
 .service-chip {
   background: var(--ss-white);
   border: 1px solid var(--ss-border);
@@ -1174,16 +1185,18 @@ select:focus-visible,
 .service-chip p { font-size: 0.8438rem; margin-bottom: 0; }
 
 @media (max-width: 980px) {
-  .services-overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-overview-grid .service-chip { grid-column: auto; }
 }
 @container (max-width: 980px) {
-  .services-overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-overview-grid .service-chip { grid-column: auto; }
 }
 @media (max-width: 620px) {
-  .services-overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-overview-grid { grid-template-columns: 1fr; }
 }
 @container (max-width: 620px) {
-  .services-overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-overview-grid { grid-template-columns: 1fr; }
 }
 
 /* ==========================================================================
@@ -1575,6 +1588,12 @@ select:focus-visible,
 
 /* Hero and conversion controls. */
 :is(#ss-mobile, #ss-page.is-mobile-layout) .hero { padding: 56px 0 48px; }
+:is(#ss-mobile, #ss-page.is-mobile-layout) .hero h1 {
+  max-width: 13ch;
+  font-size: clamp(2.25rem, 11vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
 :is(#ss-mobile, #ss-page.is-mobile-layout) .hero .container {
   grid-template-columns: minmax(0, 1fr);
   gap: 40px;
@@ -1623,7 +1642,7 @@ select:focus-visible,
 
 :is(#ss-mobile, #ss-page.is-mobile-layout) .grid { gap: 20px; }
 :is(#ss-mobile, #ss-page.is-mobile-layout) .services-overview-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns: minmax(0, 1fr) !important;
   gap: 12px;
 }
 :is(#ss-mobile, #ss-page.is-mobile-layout) .service-chip { padding: 18px 12px; }

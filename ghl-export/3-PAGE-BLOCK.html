@@ -12,9 +12,11 @@
         2-HEAD-CODE.html into the Header Code (fonts + mobile
         viewport tag live there).
      2. The Summit Shield consultation form opens in a popup: every
-        CTA on the page opens the same form modal at the end of this
-        block (the old quote CTAs were consolidated into it).
-     3. Images load from https://summitshieldinsurance.netlify.app. To self-host in GHL instead,
+        CTA on the page opens the same form modal. The popup component
+        (styles + markup + wiring) is assets/popup.js on the Netlify
+        site — one file shared by this block and every Netlify page.
+     3. Images AND popup.js load from https://summitshieldinsurance.netlify.app —
+        that site must stay live. To self-host images in GHL instead,
         upload the files from assets/img/ to your GHL Media Library
         and swap the URLs.
      ============================================================ -->
@@ -839,220 +841,35 @@
 
 <!-- ============================================================
      CONSULTATION FORM POPUP
-     Also outside .ss-root so position:fixed pins to the screen.
-     The GHL form uses the INLINE layout inside our own modal:
-     GHL's POPUP layout has no click-to-open API (it auto-opens on
-     page load), so the modal chrome is ours and the form loads
-     invisibly at page load — the popup opens instantly.
+     Single source of truth: assets/popup.js on the Netlify site —
+     the same origin every image on this page already loads from.
+     It injects the modal styles + markup and wires every
+     consultation/quote CTA. If it ever fails to load, the CTAs fall
+     back to their anchor hrefs and scroll to the contact panel.
      ============================================================ -->
 <style>
-/* Modal styles live INSIDE the block (not 1-CUSTOM-CSS.css) so the
-   popup keeps working even if the Custom CSS paste is out of date.
-   Every var() carries a hard-coded fallback for the same reason. */
-/* Baseline guards for the same stale-CSS case: keep raw images from
-   widening the page (and therefore the fixed modal) past the screen.
+/* Baseline guards for a stale Custom-CSS paste: keep raw images from
+   widening the page (and the popup's fixed overlay) past the screen.
    :where() zeroes the specificity so these NEVER outrank the real
    stylesheet's sizing rules (e.g. .nav-logo img { height: 38px }). */
 :where(#ss-page) { overflow-x: clip; max-width: 100%; }
 :where(#ss-page img) { max-width: 100%; height: auto; }
-.ss-form-modal, .ss-form-modal *, .ss-form-modal *::before, .ss-form-modal *::after { box-sizing: border-box; }
-.ss-form-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 700; /* above sticky header (500) and mobile CTA bar (600) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  font-family: var(--font-body, 'Inter', 'Segoe UI', Arial, sans-serif);
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease, visibility 220ms ease;
-}
-.ss-form-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
-/* CRITICAL: GHL's form_embed.js writes "visibility:visible;
-   pointer-events:auto" INLINE on the form iframe, which overrides the
-   inherited hidden state — leaving an invisible click-eating iframe
-   fixed over the page. Author !important beats inline styles, so while
-   the modal is closed nothing inside it may ever hit-test. */
-.ss-form-modal:not(.is-open),
-.ss-form-modal:not(.is-open) * {
-  pointer-events: none !important;
-}
-.ss-form-modal:not(.is-open) iframe[data-form-id] {
-  visibility: hidden !important;
-}
-.ss-form-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(4, 15, 34, 0.62);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-}
-.ss-form-modal-panel {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: min(620px, 100%);
-  max-height: calc(100vh - 32px);
-  max-height: calc(100dvh - 32px);
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 24px 64px rgba(4, 15, 34, 0.4);
-  overflow: hidden;
-  transform: translateY(12px);
-  transition: transform 220ms ease;
-}
-.ss-form-modal.is-open .ss-form-modal-panel { transform: translateY(0); }
-.ss-form-modal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--ss-border, #E2E8F0);
-  flex-shrink: 0;
-}
-.ss-form-modal-head strong {
-  font-family: var(--font-heading, 'Poppins', 'Segoe UI', Arial, sans-serif);
-  font-size: 1.0625rem;
-  color: var(--ss-primary, #0B2D5C);
-}
-.ss-form-modal-close {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--ss-border, #E2E8F0);
-  border-radius: 50%;
-  background: var(--ss-bg, #F5F7FA);
-  color: var(--ss-primary, #0B2D5C);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0;
-}
-.ss-form-modal-close:hover { background: var(--ss-border, #E2E8F0); }
-.ss-form-modal-body {
-  position: relative;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 4px;
-}
-/* Loading spinner behind the (transparent-until-painted) iframe */
-.ss-form-modal-body::before {
-  content: '';
-  position: absolute;
-  top: 72px;
-  left: 50%;
-  width: 32px;
-  height: 32px;
-  margin-left: -16px;
-  border-radius: 50%;
-  border: 3px solid var(--ss-border, #E2E8F0);
-  border-top-color: var(--ss-secondary, #1E5AA8);
-  animation: ss-modal-spin 0.8s linear infinite;
-}
-@keyframes ss-modal-spin { to { transform: rotate(360deg); } }
-.ss-form-modal-body iframe[data-form-id] {
-  position: relative;
-  display: block;
-  width: 100%;
-  border: none;
-  /* visible while the form loads; form_embed.js sets the real height */
-  min-height: min(70vh, 640px);
-}
-@media (max-width: 480px) {
-  .ss-form-modal { padding: 10px; }
-  .ss-form-modal-panel {
-    max-height: calc(100vh - 20px);
-    max-height: calc(100dvh - 20px);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ss-form-modal, .ss-form-modal-panel { transition-duration: 0.01ms; }
-  .ss-form-modal-body::before { animation-duration: 2s; }
-}
 </style>
-<div class="ss-form-modal" id="ss-form-modal" role="dialog" aria-modal="true" aria-label="Book your free consultation">
-  <div class="ss-form-modal-backdrop" data-ss-modal-close></div>
-  <div class="ss-form-modal-panel">
-    <div class="ss-form-modal-head">
-      <strong>Book your free consultation</strong>
-      <button type="button" class="ss-form-modal-close" data-ss-modal-close aria-label="Close form">&times;</button>
-    </div>
-    <div class="ss-form-modal-body">
-      <iframe
-        src="https://links.smilesociety.online/widget/form/BMCvnCSHkyDRszN6VevH"
-        style="width:100%;height:100%;border:none;border-radius:0px"
-        id="inline-BMCvnCSHkyDRszN6VevH"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Summit Shield - Free Consultation"
-        data-height="1551"
-        data-layout-iframe-id="inline-BMCvnCSHkyDRszN6VevH"
-        data-form-id="BMCvnCSHkyDRszN6VevH"
-        title="Summit Shield - Free Consultation">
-      </iframe>
-      <script src="https://links.smilesociety.online/js/form_embed.js"></script>
-    </div>
-  </div>
-</div>
+<script src="https://summitshieldinsurance.netlify.app/assets/popup.js" defer></script>
 
 <script>
-/* Popup wiring. Placed after the modal markup so it can run immediately
-   even when GHL injects the block after DOMContentLoaded. */
+/* GHL-specific: some GHL page wrappers suppress native fragment
+   scrolling inside Custom HTML blocks, so handle in-page links
+   explicitly. Consultation/quote links are excluded — popup.js owns
+   those (and if popup.js is absent, their native anchor behavior is
+   the intended fallback). */
 (function () {
   'use strict';
-  var modal = document.getElementById('ss-form-modal');
   var pageRoot = document.getElementById('ss-page');
-  if (!modal) return;
-  var lastTrigger = null;
-
-  function openModal(trigger) {
-    lastTrigger = trigger || null;
-    modal.classList.add('is-open');
-    // Lock page scroll without the layout jump the vanishing scrollbar causes
-    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
-    if (scrollbar > 0) document.body.style.paddingRight = scrollbar + 'px';
-    document.body.style.overflow = 'hidden';
-    var closeBtn = modal.querySelector('.ss-form-modal-close');
-    if (closeBtn) closeBtn.focus();
-  }
-  function closeModal() {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-    if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
-    lastTrigger = null;
-  }
-
-  // Every consultation/quote CTA opens the popup (anchors keep their
-  // hash as a no-JS fallback that scrolls to the contact panel).
-  // Delegate clicks because GHL may recreate or wrap elements after this
-  // block initializes. This keeps every CTA working on the published page.
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest('a[href="#consultation"], a[href="#quote"], .js-ss-open-form');
-    if (!el) return;
-    e.preventDefault();
-    openModal(el);
-  });
-  document.querySelectorAll('a[href="#consultation"], a[href="#quote"], .js-ss-open-form')
-    .forEach(function (el) { el.setAttribute('aria-haspopup', 'dialog'); });
-
-  // Explicitly handle in-page navigation. Some GHL page wrappers suppress
-  // native fragment scrolling inside Custom HTML blocks.
+  if (!pageRoot) return;
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a[href^="#"]');
-    if (!link || !pageRoot || !pageRoot.contains(link) || link.matches('a[href="#consultation"], a[href="#quote"]')) return;
+    if (!link || !pageRoot.contains(link) || link.matches('a[href$="#consultation"], a[href$="#quote"]')) return;
     var id = link.getAttribute('href').slice(1);
     var target = id && document.getElementById(id);
     if (!target) return;
@@ -1062,30 +879,6 @@
       block: 'start'
     });
     history.replaceState(null, '', '#' + id);
-  });
-
-  modal.querySelectorAll('[data-ss-modal-close]').forEach(function (el) {
-    el.addEventListener('click', closeModal);
-  });
-  document.addEventListener('keydown', function (e) {
-    if (!modal.classList.contains('is-open')) return;
-    if (e.key === 'Escape') { closeModal(); return; }
-    // Keep Tab inside the open dialog
-    if (e.key === 'Tab') {
-      var focusables = modal.querySelectorAll('button, iframe');
-      var first = focusables[0];
-      var last = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      } else if (!modal.contains(document.activeElement)) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
   });
 })();
 </script>

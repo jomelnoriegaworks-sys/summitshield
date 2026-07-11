@@ -871,6 +871,18 @@
   transition: opacity 220ms ease, visibility 220ms ease;
 }
 .ss-form-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
+/* CRITICAL: GHL's form_embed.js writes "visibility:visible;
+   pointer-events:auto" INLINE on the form iframe, which overrides the
+   inherited hidden state — leaving an invisible click-eating iframe
+   fixed over the page. Author !important beats inline styles, so while
+   the modal is closed nothing inside it may ever hit-test. */
+.ss-form-modal:not(.is-open),
+.ss-form-modal:not(.is-open) * {
+  pointer-events: none !important;
+}
+.ss-form-modal:not(.is-open) iframe[data-form-id] {
+  visibility: hidden !important;
+}
 .ss-form-modal-backdrop {
   position: absolute;
   inset: 0;

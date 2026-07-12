@@ -283,6 +283,8 @@ select:focus-visible,
   color: var(--ss-primary);
   box-shadow: var(--shadow-sm);
 }
+/* Keep CTA text AA-compliant even when a host applies a global link color. */
+a.btn--primary { color: var(--ss-primary); }
 .btn--primary:hover {
   background: var(--ss-accent-dark);
   box-shadow: var(--shadow-md);
@@ -338,6 +340,9 @@ select:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 16px;
   padding: 14px var(--space-md);
   max-width: var(--container-max);
   margin: 0 auto;
@@ -346,6 +351,8 @@ select:focus-visible,
 .nav-logo {
   display: flex;
   align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
   gap: 10px;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -353,6 +360,7 @@ select:focus-visible,
   color: var(--ss-primary);
 }
 .nav-logo img { height: 38px; width: auto; }
+.nav-logo > span { min-width: 0; white-space: nowrap; }
 
 .nav-links {
   display: flex;
@@ -396,6 +404,8 @@ select:focus-visible,
 
 .nav-toggle {
   display: none;
+  flex: 0 0 44px;
+  margin-left: auto;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -638,6 +648,11 @@ select:focus-visible,
 }
 
 @media (max-width: 600px) {
+  /* Senior-friendly mobile reading size across every paragraph variant. */
+  p {
+    font-size: 1.0625rem !important;
+    line-height: 1.7 !important;
+  }
   .hero { padding-top: 3.25rem; }
   .hero h1 { font-size: clamp(2.25rem, 11vw, 3.25rem); max-width: 13ch; }
   .hero-sub { font-size: 1.0625rem; line-height: 1.65; }
@@ -725,7 +740,7 @@ select:focus-visible,
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--ss-accent);
+  color: var(--ss-secondary);
   margin-bottom: var(--space-sm);
 }
 
@@ -928,7 +943,7 @@ select:focus-visible,
 }
 .footer-brand img { height: 40px; margin-bottom: var(--space-sm); }
 .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9375rem; max-width: 32ch; }
-.footer-col h5 {
+.footer-col h4 {
   color: #fff;
   font-family: var(--font-heading);
   font-size: 0.9375rem;
@@ -1118,7 +1133,7 @@ select:focus-visible,
   border-color: var(--ss-secondary);
 }
 .service-chip .card-icon { margin: 0 auto var(--space-sm); }
-.service-chip h4 { font-size: 1rem; margin-bottom: 4px; }
+.service-chip h3 { font-size: 1rem; margin-bottom: 4px; }
 .service-chip p { font-size: 0.8438rem; margin-bottom: 0; }
 
 @media (max-width: 980px) {

@@ -1534,12 +1534,11 @@ select:focus-visible,
 }
 
 /* ============================================================
-   GHL NARROW-BLOCK OVERRIDES (UNIVERSAL + LEGACY MOBILE)
+   GHL NARROW-BLOCK OVERRIDES
 
    GHL's page-builder mobile canvas can be narrow while the browser
-   viewport remains desktop-width. Block 3 adds .is-mobile-layout by
-   measuring its own rendered width; Block 4 keeps its #ss-mobile scope.
-   Both variants therefore share these narrow-layout rules.
+   viewport remains desktop-width. Page Block 3 adds .is-mobile-layout
+   by measuring its own rendered width, enabling these narrow-layout rules.
    ============================================================ */
 :is(#ss-mobile, #ss-page.is-mobile-layout) {
   width: 100% !important;
